@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+
+  "name": "OXO Page Speed",
+  "version": "1.0.0.00",
+  "description": "Test Page Speed",
+
+  "icons": {
+    "16" : "assets/images/logo-16.png",
+    "48" : "assets/images/logo-48.png",
+    "128" : "assets/images/logo-128.png"
+  },
+
+  "background": { 
+    "scripts": ["assets/js/jquery-3.2.1.min.js"]
+	},
+  
+  "browser_action": {
+	"default_icon": "assets/images/logo-128.png",
+	"default_popup": "background.html"
+  },
+
+  "permissions": [ "tabs", "https://*.gtmetrix.com/*", "notifications" ],
+  "content_scripts": [
+      {
+        "matches": ["https://*.gtmetrix.com/*"],
+        "js": ["assets/js/oxo-page-speed-content.js"],
+        "run_at": "document_end" 
+      } 
+    ]
+
+}
